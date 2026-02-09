@@ -1,2 +1,5 @@
-# banking_customer_churn
-Understanding Customer Behaviour and Predicting Churn in Banking Institutions
+# Bank Customers Churn Analysis
+
+## Project Overview
+
+Understanding Customer Behaviour and Predicting Churn in Banking 
