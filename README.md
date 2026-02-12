@@ -8,6 +8,16 @@ Banks lose customers. That's not news. But understanding *why* they leave, and m
 
 This project takes a dataset of 10,000 bank customers and digs into the patterns behind churn. The goal isn't just to describe what happened. It's to surface actionable insight that a retention team could actually use.
 
+## Business Objectives
+
+1. Who is churning and why?
+This profiles customers who leave the bank by their demographic (age, gender, country), financial (balance, credit score, salary), and behavioural (active status, product count, tenure) characteristics to identify the common traits of a churned customer.
+
+3. Where is the risk concentrated?
+We will try to quantify churn rates across key customer segments to identify which groups are most vulnerable and represent the greatest volume or financial exposure — so the retention team knows exactly where to focus first.
+
+5. What are the early warning signs?
+We will dentify patterns and combinations of factors (such as zero balance paired with inactivity, or high product count with short tenure) that signal a customer is at risk of leaving before they actually do.
 
 ## The Dataset
 
