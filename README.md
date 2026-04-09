@@ -11,11 +11,11 @@ This project takes a dataset of 10,000 bank customers and digs into the patterns
 1. Who is churning and why?
 This profiles customers who leave the bank by their demographic (age, gender, country), financial (balance, credit score, salary), and behavioural (active status, product count, tenure) characteristics to identify the common traits of a churned customer.
 
-3. Where is the risk concentrated?
+2. Where is the risk concentrated?
 We will try to quantify churn rates across key customer segments to identify which groups are most vulnerable and represent the greatest volume or financial exposure — so the retention team knows exactly where to focus first.
 
-5. What are the early warning signs?
-We will dentify patterns and combinations of factors (such as zero balance paired with inactivity, or high product count with short tenure) that signal a customer is at risk of leaving before they actually do.
+3. What are the early warning signs?
+We will identify patterns and combinations of factors (such as zero balance paired with inactivity, or high product count with short tenure) that signal a customer is at risk of leaving before they actually do.
 
 ## The Dataset
 
@@ -37,3 +37,116 @@ Source: [Kaggle - Bank Customer Churn Dataset](https://www.kaggle.com/datasets/g
 | active_member | Is an active member (1 = yes, 0 = no) | Binary |
 | estimated_salary | Estimated annual salary | Numeric |
 | churn | Left the bank (1 = yes, 0 = no) | Binary |
+
+## Approach
+
+This analysis follows the six phases of the data analysis process.
+
+## Ask
+Defined three focussed business objectives centred on identifying who churns, where risk is concentrated, and what early warning signs exist.
+
+## Prepare
+Downloaded the dataset from Kaggle. Assessed its structure, size, and column types. Imported into Google Sheets with a protected raw_data sheet as the single source of truth.
+
+## Process
+Conducted a full health audit and cleaning workflow:
+
+- Built a data_health_summary sheet with COUNTA and COUNTBLANK formulas referencing raw_data to assess completeness across all 12 columns
+- Result: zero missing values across the entire dataset (100% complete on all columns)
+- Checked for and confirmed no duplicate rows
+- Removed 2 empty trailing rows (10002-10003) from cleaned_data
+- Verified text consistency in categorical columns (country, gender) using filters
+- Checked numeric ranges from impossible or suspicious values
+- Standardised all column headers to snake_case
+- Created derived columns: age_group, balance_salary_ratio, high_product_flag
+- Added readable label columns for binary fields with conditional formatting
+- Documented every cleaning decision in dedicated data_cleaning_log sheet
+
+## Analyse
+
+Performed single-variable segmentation across all key dimensions (country, gender, age group, product count, active status, balance). Then cross-referenced the strongest risk factors against each other to identify composite risk profiles and determine whether risk factors were independent or overlapping.
+
+## Share
+
+Created four key visualisations telling the story from overview to specific risk profiles. Compiled findings into a structured report with business recommendations.
+
+## Act
+
+Delivered seven key findings with paired business recommendations for the retention team.
+
+## Key Findings
+### Base churn rate: 20.37% (2,037 out of 10,000 customers left). Every finding below is measured against this benchmark.
+
+**Finding 1: The 46-60 age group is the bank's biggest churn problem**
+
+The 46-60 age bracket churns at 51.12%, which is 2.5 times the base rate. This isn't a single-market issue. It holds across all three countries: Germany (67.33%), France (45.79%), and Spain (40.66%). The 18-30 age group is the most loyal at just 7.52%. Something specific is pushing middle-aged customers away, and it's happening everywhere.
+
+**Finding 2: Customers with 3-4 products churn at catastrophic rates**
+
+82.71% of customers with 3 products left. 100% of customers with 4 products left. Every single one. And critically, even active customers with 3-4 products churn at 80.28%. Activity doesn't protect them. This means the problem is the products themselves, not a lack of engagement. Cross-selling beyond 2 products is actively associated with customer loss.
+
+**Finding 3: Women churn significantly more than men across all markets**
+
+Women churn at 25.07% compared to 16.46% for men. Roughly 3 women leave for every 2 men. This gap is consistent across all three countries (France: 20.34% vs 12.71%, Germany: 37.55% vs 27.81%, Spain: 21.21% vs 13.11%), which means it's an independent factor, not a side effect of the Germany problem.
+
+**Finding 4: Germany's churn rate is double that of France and Spain**
+
+Germany churns at 32.44% compared to 16.15% (France) and 16.67% (Spain). The Germany + 46-60 combination reaches 67.33%, and Germany + 46-60 + inactive hits 80.80%. Germany + 46-60 + 3-4 products is 100%. There is a market-specific problem in Germany that compounds with other risk factors.
+
+**Finding 5: Non-zero balance inactive customers are the highest-volume risk group**
+
+Customers with money in their accounts who have gone inactive churn at 31.63%. This group contains 3,105 customers with 982 churners. In absolute terms, this is where the bank loses the most customers and the most revenue. These are people with actual balances who have disengaged and are taking their money elsewhere.
+
+**Finding 6: Two-product customers are the retention sweet spot**
+
+Customers with exactly 2 products churn at just 7.58%, the lowest of any product count. Even lower than single-product customers (27.71%). This suggests a natural "right amount" of product engagement that the bank should study and replicate rather than pushing for 3 or 4 products.
+
+**Finding 7: Zero-balance customers are an opportunity, not a threat**
+
+Zero-balance customers churn at 13.82%, below the base rate. Zero-balance active customers churn at just 9.61%. These customers aren't leaving because they're not losing anything by staying. But they're also not generating revenue. They represent a re-engagement and revenue opportunity rather than a retention risk.
+
+## Business Recommendations
+
+**1. Investigate the 46-60 age group experience**
+
+Commission qualitative research (surveys, exit interviews) with 46-60 year old customers to understand why they're leaving at such elevated rates across all markets. This age group likely has specific financial needs (retirement planning, wealth management, mortgage changes) that the bank may not be serving well.
+
+**2. Audit the 3-4 product portfolio**
+
+Stop aggressive cross-selling beyond 2 products until the bank understands why multi-product customers are leaving at near-total rates. Conduct a product compatibility review to identify whether specific product combinations create friction, fees, or complexity that drives customers away.
+
+**3. Investigate the gender gap**
+
+The consistent 8-10 percentage point gap between female and male churn rates across all countries warrants investigation. Analyse whether women are disproportionately represented in other high-risk segments (46-60, 3-4 products, inactive) or whether the gap persists after controlling for these factors. Consider whether product design, communication style, or service experience differs by gender.
+
+**4. Conduct a Germany-specific market review**
+
+Germany's churn rate is double the other markets and compounds with every other risk factor. Investigate competitive landscape, regulatory differences, service quality, and pricing relative to the German banking market. The Germany + 46-60 + inactive segment (80.80% churn) should be the immediate focus.
+
+**5. Build an inactivity early warning system**
+
+Non-zero balance customers who become inactive represent the highest-volume risk group. The bank should monitor engagement metrics and trigger retention outreach when a customer with a positive balance shows declining activity. The intervention window is between "going quiet" and "formally leaving."
+
+**6. Study and replicate the 2-product model**
+
+Understand what makes 2-product customers so stable. Which product combinations have the lowest churn? Use this as the basis for cross-sell strategy rather than pushing for maximum product count. The goal should be the right products, not the most products.
+
+**7. Re-engage zero-balance customers for revenue growth**
+
+Zero-balance customers are not at high risk of leaving, but they represent unrealised revenue. Design targeted campaigns to encourage savings, introduce them to fee-generating products, or offer incentives for account funding. Active zero-balance customers (9.61% churn) are especially receptive since they're already engaged with the bank.
+
+## Limitations
+
+**Snapshot data.** The dataset is a single point in time. There's no way to track how customer behaviour changed over time, when engagement declined, or what sequence of events led to churn. Time-series data would significantly strengthen the early warning analysis.
+
+**Unknown product details.** The dataset tells you how many products a customer holds but not which products. Understanding which specific combinations drive the 3-4 product churn problem requires product-level data.
+
+**Ambiguous "active member" definition.** The criteria for active vs inactive membership are not defined in the dataset. The findings about activity status are directionally useful but the exact threshold for "active" is unknown.
+
+**Estimated salary.** The salary column is explicitly an estimate, not verified income. Salary-based conclusions carry this uncertainty.
+
+**No causal data.** The analysis identifies associations and patterns but cannot determine causation. The 46-60 age group churns at high rates, but the data cannot tell you why. That requires qualitative research.
+
+**Small sample sizes in composite segments.** Some cross-referenced segments (e.g., Germany + 46-60 + 3-4 products at 38 customers) have small sample sizes. Percentage-based findings for these groups should be treated as directional rather than definitive.
+
+**Three countries only.** Findings are limited to France, Germany, and Spain. Patterns may not generalise to other markets.
