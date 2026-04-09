@@ -1,4 +1,4 @@
-# Bank Customers Churn Analysis
+# Bank Customer Churn Analysis
 
 ## The Problem
 
