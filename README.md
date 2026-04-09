@@ -1,7 +1,5 @@
 # Bank Customers Churn Analysis
 
-## Introduction
-
 ## The Problem
 
 Banks lose customers. That's not news. But understanding *why* they leave, and more importantly *who* is likely to leave next, is the difference between reactive damage control and proactive retention. Customer churn is expensive. Acquiring a new customer costs significantly more than keeping an existing one, and every departure represents lost revenue, lost cross-selling opportunities, and a signal that something in the experience isn't working.
