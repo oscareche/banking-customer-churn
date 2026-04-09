@@ -39,16 +39,9 @@ Source: [Kaggle - Bank Customer Churn Dataset](https://www.kaggle.com/datasets/g
 | churn | Left the bank (1 = yes, 0 = no) | Binary |
 
 ## Approach
-This analysis follows the six phases of the data analysis process.
+This analysis follows the six phases of the data analysis process: Ask, Prepare, Process, Analyse, Share and Act.
 
-## Ask
-Defined three focussed business objectives centred on identifying who churns, where risk is concentrated, and what early warning signs exist.
-
-## Prepare
-Downloaded the dataset from Kaggle. Assessed its structure, size, and column types. Imported into Google Sheets with a protected raw_data sheet as the single source of truth.
-
-## Process
-Conducted a full health audit and cleaning workflow:
+For the **Process** phase, a full health audit was conducted follwoing a cleaning workflow as follows:
 
 - Built a data_health_summary sheet with COUNTA and COUNTBLANK formulas referencing raw_data to assess completeness across all 12 columns
 - Result: zero missing values across the entire dataset (100% complete on all columns)
@@ -60,18 +53,6 @@ Conducted a full health audit and cleaning workflow:
 - Created derived columns: age_group, balance_salary_ratio, high_product_flag
 - Added readable label columns for binary fields with conditional formatting
 - Documented every cleaning decision in dedicated data_cleaning_log sheet
-
-## Analyse
-
-Performed single-variable segmentation across all key dimensions (country, gender, age group, product count, active status, balance). Then cross-referenced the strongest risk factors against each other to identify composite risk profiles and determine whether risk factors were independent or overlapping.
-
-## Share
-
-Created four key visualisations telling the story from overview to specific risk profiles. Compiled findings into a structured report with business recommendations.
-
-## Act
-
-Delivered seven key findings with paired business recommendations for the retention team.
 
 ## Key Findings
 
@@ -85,23 +66,11 @@ The 46-60 age bracket churns at 51.12%, which is 2.5 times the base rate. This i
 
 82.71% of customers with 3 products left. 100% of customers with 4 products left. Every single one. And critically, even active customers with 3-4 products churn at 80.28%. Activity doesn't protect them. This means the problem is the products themselves, not a lack of engagement. Cross-selling beyond 2 products is actively associated with customer loss.
 
-**Finding 3: Women churn significantly more than men across all markets**
-
-Women churn at 25.07% compared to 16.46% for men. Roughly 3 women leave for every 2 men. This gap is consistent across all three countries (France: 20.34% vs 12.71%, Germany: 37.55% vs 27.81%, Spain: 21.21% vs 13.11%), which means it's an independent factor, not a side effect of the Germany problem.
-
-**Finding 4: Germany's churn rate is double that of France and Spain**
-
-Germany churns at 32.44% compared to 16.15% (France) and 16.67% (Spain). The Germany + 46-60 combination reaches 67.33%, and Germany + 46-60 + inactive hits 80.80%. Germany + 46-60 + 3-4 products is 100%. There is a market-specific problem in Germany that compounds with other risk factors.
-
-**Finding 5: Non-zero balance inactive customers are the highest-volume risk group**
+**Finding 3: Non-zero balance inactive customers are the highest-volume risk group**
 
 Customers with money in their accounts who have gone inactive churn at 31.63%. This group contains 3,105 customers with 982 churners. In absolute terms, this is where the bank loses the most customers and the most revenue. These are people with actual balances who have disengaged and are taking their money elsewhere.
 
-**Finding 6: Two-product customers are the retention sweet spot**
-
-Customers with exactly 2 products churn at just 7.58%, the lowest of any product count. Even lower than single-product customers (27.71%). This suggests a natural "right amount" of product engagement that the bank should study and replicate rather than pushing for 3 or 4 products.
-
-**Finding 7: Zero-balance customers are an opportunity, not a threat**
+**Finding 4: Zero-balance customers are an opportunity, not a threat**
 
 Zero-balance customers churn at 13.82%, below the base rate. Zero-balance active customers churn at just 9.61%. These customers aren't leaving because they're not losing anything by staying. But they're also not generating revenue. They represent a re-engagement and revenue opportunity rather than a retention risk.
 
@@ -115,23 +84,11 @@ Commission qualitative research (surveys, exit interviews) with 46-60 year old c
 
 Stop aggressive cross-selling beyond 2 products until the bank understands why multi-product customers are leaving at near-total rates. Conduct a product compatibility review to identify whether specific product combinations create friction, fees, or complexity that drives customers away.
 
-**3. Investigate the gender gap**
-
-The consistent 8-10 percentage point gap between female and male churn rates across all countries warrants investigation. Analyse whether women are disproportionately represented in other high-risk segments (46-60, 3-4 products, inactive) or whether the gap persists after controlling for these factors. Consider whether product design, communication style, or service experience differs by gender.
-
-**4. Conduct a Germany-specific market review**
-
-Germany's churn rate is double the other markets and compounds with every other risk factor. Investigate competitive landscape, regulatory differences, service quality, and pricing relative to the German banking market. The Germany + 46-60 + inactive segment (80.80% churn) should be the immediate focus.
-
-**5. Build an inactivity early warning system**
+**3. Build an inactivity early warning system**
 
 Non-zero balance customers who become inactive represent the highest-volume risk group. The bank should monitor engagement metrics and trigger retention outreach when a customer with a positive balance shows declining activity. The intervention window is between "going quiet" and "formally leaving."
 
-**6. Study and replicate the 2-product model**
-
-Understand what makes 2-product customers so stable. Which product combinations have the lowest churn? Use this as the basis for cross-sell strategy rather than pushing for maximum product count. The goal should be the right products, not the most products.
-
-**7. Re-engage zero-balance customers for revenue growth**
+**4. Re-engage zero-balance customers for revenue growth**
 
 Zero-balance customers are not at high risk of leaving, but they represent unrealised revenue. Design targeted campaigns to encourage savings, introduce them to fee-generating products, or offer incentives for account funding. Active zero-balance customers (9.61% churn) are especially receptive since they're already engaged with the bank.
 
