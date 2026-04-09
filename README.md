@@ -96,6 +96,9 @@ Zero-balance customers are not at high risk of leaving, but they represent unrea
 
 **Snapshot data:** The dataset is a single point in time. There's no way to track how customer behaviour changed over time, when engagement declined, or what sequence of events led to churn. Time-series data would significantly strengthen the early warning analysis.
 
+<img width="1010" height="625" alt="Composite risk profiles" src="https://github.com/user-attachments/assets/1ca7db58-757e-4f06-a03f-f42b3f66fa65" />
+
+
 **Unknown product details:** The dataset tells you how many products a customer holds but not which products. Understanding which specific combinations drive the 3-4 product churn problem requires product-level data.
 
 **Ambiguous "active member" definition:** The criteria for active vs inactive membership are not defined in the dataset. The findings about activity status are directionally useful but the exact threshold for "active" is unknown.
