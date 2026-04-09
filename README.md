@@ -39,7 +39,6 @@ Source: [Kaggle - Bank Customer Churn Dataset](https://www.kaggle.com/datasets/g
 | churn | Left the bank (1 = yes, 0 = no) | Binary |
 
 ## Approach
-
 This analysis follows the six phases of the data analysis process.
 
 ## Ask
