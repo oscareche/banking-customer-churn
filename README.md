@@ -75,7 +75,8 @@ Created four key visualisations telling the story from overview to specific risk
 Delivered seven key findings with paired business recommendations for the retention team.
 
 ## Key Findings
-### Base churn rate: 20.37% (2,037 out of 10,000 customers left). Every finding below is measured against this benchmark.
+
+Base churn rate: 20.37% (2,037 out of 10,000 customers left). Every finding below is measured against this benchmark.
 
 **Finding 1: The 46-60 age group is the bank's biggest churn problem**
 
