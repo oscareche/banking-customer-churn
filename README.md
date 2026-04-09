@@ -84,6 +84,9 @@ Commission qualitative research (surveys, exit interviews) with 46-60 year old c
 
 Stop aggressive cross-selling beyond 2 products until the bank understands why multi-product customers are leaving at near-total rates. Conduct a product compatibility review to identify whether specific product combinations create friction, fees, or complexity that drives customers away.
 
+<img width="1011" height="564" alt="Product x Activity matrix" src="https://github.com/user-attachments/assets/23154731-f367-41d3-a026-8ac9710ad662" />
+
+
 **3. Build an inactivity early warning system**
 
 Non-zero balance customers who become inactive represent the highest-volume risk group. The bank should monitor engagement metrics and trigger retention outreach when a customer with a positive balance shows declining activity. The intervention window is between "going quiet" and "formally leaving."
@@ -92,21 +95,17 @@ Non-zero balance customers who become inactive represent the highest-volume risk
 
 Zero-balance customers are not at high risk of leaving, but they represent unrealised revenue. Design targeted campaigns to encourage savings, introduce them to fee-generating products, or offer incentives for account funding. Active zero-balance customers (9.61% churn) are especially receptive since they're already engaged with the bank.
 
+<img width="1010" height="625" alt="Composite risk profiles" src="https://github.com/user-attachments/assets/1ca7db58-757e-4f06-a03f-f42b3f66fa65" />
+
 ## Limitations
 
 **Snapshot data:** The dataset is a single point in time. There's no way to track how customer behaviour changed over time, when engagement declined, or what sequence of events led to churn. Time-series data would significantly strengthen the early warning analysis.
 
-<img width="1010" height="625" alt="Composite risk profiles" src="https://github.com/user-attachments/assets/1ca7db58-757e-4f06-a03f-f42b3f66fa65" />
-
 
 **Unknown product details:** The dataset tells you how many products a customer holds but not which products. Understanding which specific combinations drive the 3-4 product churn problem requires product-level data.
-
-**Ambiguous "active member" definition:** The criteria for active vs inactive membership are not defined in the dataset. The findings about activity status are directionally useful but the exact threshold for "active" is unknown.
 
 **Estimated salary.** The salary column is explicitly an estimate, not verified income. Salary-based conclusions carry this uncertainty.
 
 **No causal data:** The analysis identifies associations and patterns but cannot determine causation. The 46-60 age group churns at high rates, but the data cannot tell you why. That requires qualitative research.
 
 **Small sample sizes in composite segments:** Some cross-referenced segments (e.g., Germany + 46-60 + 3-4 products at 38 customers) have small sample sizes. Percentage-based findings for these groups should be treated as directional rather than definitive.
-
-**Three countries only:** Findings are limited to France, Germany, and Spain. Patterns may not generalise to other markets.
