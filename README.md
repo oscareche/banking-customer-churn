@@ -1,5 +1,13 @@
 # Bank Customer Churn Analysis
 
+**Question:** Which bank customers are leaving, and who is likely to leave next?
+
+- Customers aged 46–60 churn at 51.12%, 2.5× the 20.37% base rate, in all three countries.
+- 82.71% of 3-product customers left, and every 4-product customer did.
+- Inactive customers with a balance are the biggest loss by volume: 982 of 3,105 left (31.63%).
+
+**Tools:** Google Sheets (COUNTIFS, conditional formatting, combo charts)
+
 ## The Problem
 
 Banks lose customers. That's not news. But understanding *why* they leave, and more importantly *who* is likely to leave next, is the difference between reactive damage control and proactive retention. Customer churn is expensive. Acquiring a new customer costs significantly more than keeping an existing one, and every departure represents lost revenue, lost cross-selling opportunities, and a signal that something in the experience isn't working.
@@ -41,7 +49,7 @@ Source: [Kaggle - Bank Customer Churn Dataset](https://www.kaggle.com/datasets/g
 ## Approach
 This analysis follows the six phases of the data analysis process: Ask, Prepare, Process, Analyse, Share and Act.
 
-For the **Process** phase, a full health audit was conducted follwoing a cleaning workflow as follows:
+For the **Process** phase, a full health audit was conducted following a cleaning workflow as follows:
 
 - Built a data_health_summary sheet with COUNTA and COUNTBLANK formulas referencing raw_data to assess completeness across all 12 columns
 - Result: zero missing values across the entire dataset (100% complete on all columns)
